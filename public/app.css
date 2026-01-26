@@ -132,7 +132,8 @@
 }
 
 html {
-  font-family: 'Times New Roman', Times, serif;
+  /* font-family: 'Times New Roman', Times, serif; */
+  font-family: pt-sans-pro, "Trebuchet MS", "Helvetica Neue", Helvetica, sans-serif; 
   font-size: var(--rem-font-size);
   -moz-text-size-adjust: none;
   -webkit-text-size-adjust: none;
