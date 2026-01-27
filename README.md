@@ -1,4 +1,4 @@
-# TI2 (user instructions)
+# Installation
 
 ## 1. [Gleam Install](https://gleam.run/getting-started/installing)
 
@@ -47,20 +47,31 @@ To check, open `public/index.html` inside a browser.
 
 ## 5. Source location
 
-Author source is contained in `ti2/wly/` folder.
+Author source is contained in `wly/` folder.
 
 In VSCode, download the [Writerly](https://marketplace.visualstudio.com/items?itemName=TabbyNotes.writerly-vscode-extension) extension for syntax highlighting.
 
-## 6. Formatter
-
-Run `gleam run -- --fmt` in `ti2` repo for default 55 to reformat at char per line formatting or `gleam run -- --fmt <X>` to format line length to X chars per line.
-
-## 7. Go-to-source tooltips
+## 6. Go-to-source tooltips (`--local` mode)
 
 Run `npm install`, `npm run dev`, `gleam run -- --local`.
 
 Do not forget to an ordinary `gleam run` before publishing again—you don't want to publish the go-to-source tooltips!
 
+## 6. Source Formatter
+
+Run `gleam run -- --fmt` for default 55 to reformat at char per line formatting or `gleam run -- --fmt <X>` to format line length to X chars per line.
+
 ## 8. Help
 
 Run `gleam run -- --help` in `ti2` repo.
+
+# Usage
+
+Main commands:
+
+```
+gleam run              // main command
+gleam run -- --local   // for 'local dev' mode with tooltip links, needs 'npm run dev' to be run
+gleam run -- --fmt <x> // re-formats the source at x chars per line
+```
+
