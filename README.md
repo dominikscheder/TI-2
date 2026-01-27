@@ -65,13 +65,20 @@ Run `gleam run -- --fmt` for default 55 to reformat at char per line formatting 
 
 Run `gleam run -- --help` in `ti2` repo.
 
-# Usage
+# Cheatsheet
 
-Main commands:
+Main commands recap:
 
 ```
 gleam run              // main command
-gleam run -- --local   // for 'local dev' mode with tooltip links, needs 'npm run dev' to be run
+gleam run -- --local   // source with tooltips
 gleam run -- --fmt <x> // re-formats the source at x chars per line
+npm install            // to install node stuff needed to run local server
+npm run dev            // run local server that is needed to respond to the local 'dev mode' requests
 ```
 
+# Known bugs
+
+1. The `--local` mode has some layout artifacts (code protruding beyond `<pre></pre>` borders etc) necessary for the tooltips; check if a layout problem occurs in "normal mode" (without `--local`) before freaking out.
+
+2. Italics prevent line breaks if they end right before a punctuation mark. Writing `this is _a sample long italic phrase that ends with a period._` instead of `this is _a sample long italic phrase that ends with a period_.` will fix this, for now. (But we'll fix it better at some later point.)
