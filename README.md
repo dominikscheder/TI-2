@@ -105,13 +105,13 @@ git pull --rebase      // when a conflict arises during push or pull, try this; 
 
 Steps: 
 
-1. goto `~/github.com/vistuleB/wly`
+1. `cd ~/github.com/vistuleB/wly`
 2. `git pull`
-3. goto `~/github.com/vistuleB`
+3. `cd ~/github.com/vistuleB`
 4. `git clone git@github.com:vistuleB/ii2.git`
 5. `cd ii2`
 6. replace contents of `./public/pages` with the TI-1 `.html` source files (it currently contains TI-2 source files)
-7. `rm -rf wly_content/*` (get rid of old TI-2 .wly output)
-8. `gleam run -- --parse-html public/pages` & then work through errors (it will crash as soon as it finds an unmatched tag e.g., you have to fix unmatched tags manually; it might be picky about the .html structure in some other ways I can't remember; if the same pattern is repeatedly causing a crash then one can augment the function named `bad_html_pre_processor` found in `github.com/vistuleB/wly/vxml/vxml.gleam` to pre-process that pattern away)
+7. `rm -rf wly_content/*` (get rid of old TI-2 .wly output) inside `ii2` directory
+8. `gleam run -- --parse-html public/pages` & then work through errors (it will crash as soon as it finds an unmatched tag e.g., you have to fix unmatched tags manually; it might be picky about the .html structure in some other ways; if the same pattern is repeatedly causing a crash then one can augment the function named `bad_html_pre_processor` found in `github.com/vistuleB/wly/vxml/vxml.gleam` to pre-process that pattern away)
 
 Discrepancies in file naming conventions between TI-1 and TI-2 may also cause crashes in the last step, as the html-to-wly converter becomes confused how to name an output file; in that case just rename the files according the same convention as TI-2. (Or else edit the code to teach it how to parse TI-1 filenames, but I'm assuming the latter will be easier.)
