@@ -114,4 +114,6 @@ Steps:
 7. `rm -rf wly_content/*` (get rid of old TI-2 .wly output) inside `ii2` directory
 8. `gleam run -- --parse-html public/pages` & then work through errors (it will crash as soon as it finds an unmatched tag e.g., you have to fix unmatched tags manually; it might be picky about the .html structure in some other ways; if the same pattern is repeatedly causing a crash then one can augment the function named `bad_html_pre_processor` found in `github.com/vistuleB/wly/vxml/vxml.gleam` to pre-process that pattern away)
 
-Discrepancies in file naming conventions between TI-1 and TI-2 may also cause crashes in the last step, as the html-to-wly converter becomes confused how to name an output file; in that case just rename the files according the same convention as TI-2. (Or else edit the code to teach it how to parse TI-1 filenames, but I'm assuming the latter will be easier.)
+Discrepancies in file naming conventions between TI-1 and TI-2 may also cause crashes in the last step, as the html-to-wly converter becomes confused how to name an output file. In that case, rename the files according the same convention as TI-2.
+
+Note that the `.wly` source obtained is just a first draft, not adapted to final usage. (But still 90% of the way there, compared to starting with raw HTML.)
