@@ -91,7 +91,7 @@
         \end{align*}
 
         Wenn $L(M) = L$ und $M$ für jede Eingabe $x, z$
-        terminiert, dann _entscheidet_ $M$ die Sprache $L$ .
+        terminiert, dann _entscheidet_ $M$ die Sprache $L$.
         Sei $t: \N \rightarrow \N$. $M$ entscheidet $L$ _in
         Zeit $t$_ wenn für alle $x, z \in \Sigma^*$ die
         Berechnung $M(x,z)$ in maximal $O(t(|x|))$ Schritten

@@ -35,7 +35,6 @@ Various output should come out like this:
 
 1. goto `dominikscheder/TI-2` folder
 2. `gleam run` or `gleam run --verbose`
-3. try to 
 
 Various messages from the desugaring engine (situated in `wly` repo) should print out and the `public/` folder should have its .html repopulated.
 

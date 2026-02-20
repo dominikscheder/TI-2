@@ -221,8 +221,8 @@
 
     |> Definition
         Zu einem Eingabealphabet $\Sigma$ definieren wir das
-        _Codierungsalphabet_ $\Lambda := \writelambda$ ,
-        wobei wir annehmen, dass
+        _Codierungsalphabet_ $\Lambda := \writelambda$, wobei
+        wir annehmen, dass
         $\texttt{#}, \texttt{,}, \texttt{L}, \texttt{S},
         \texttt{R}, \texttt{;} \not \in \Sigma$.
         Wir können nun jede Turingmaschine $M$ mit

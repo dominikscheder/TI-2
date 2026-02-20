@@ -2,7 +2,7 @@
     title=Das Schröder-Bernstein-Theorem
 
     _Betrachten_ wir noch einmal einen Beweis, dass
-    $[0,1] \times [0,1] \approx [0,1]$. Wir nehmen zwei  
+    $[0,1] \times [0,1] \approx [0,1]$. Wir nehmen zwei
     Zahlen $(x,y) \in [0,1] \times [0,1]$ und schreiben
     sie in Binärdarstellung $0.x_1 x_2 x_3 \dots$ und
     $0.y_1 y_2 y_3\dots$, wobei wir $1$ nicht als
