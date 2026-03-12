@@ -79,7 +79,7 @@ const p_cannot_be_contained_in = [
 
 const post_counter_space = " "
 
-pub fn main_pipeline(author_mode: Bool) -> List(Pipe) {
+pub fn main_pipeline(input_dir: String, author_mode: Bool) -> List(Pipe) {
   let escaped_dollar_to_span_rr_splitter =
     grs.rr_splitter_for_groups([
       #("\\\\", grs.Trash),
@@ -528,15 +528,15 @@ pub fn main_pipeline(author_mode: Bool) -> List(Pipe) {
     case author_mode {
       False -> []
       True -> [
-        dl.ti2_turn_lines_into_3003_spans("./course1/wly/", [
+        dl.ti2_turn_lines_into_3003_spans("./" <> input_dir <> "/wly/", [
           "Math",
           "MathBlock",
           "TopMenu",
           "BottomMenu",
         ]),
-        dl.ti2_adorn_img_with_3003_spans("./course1/public/", []),
-        dl.ti2_adorn_with_3003_spans(#("./course1/wly/", "", ["MathBlock"])),
-        dl.ti2_wrap_with_3003_spans(#("./course1/wly/", "", ["Math"])),
+        dl.ti2_adorn_img_with_3003_spans("./" <> input_dir <> "/public/", []),
+        dl.ti2_adorn_with_3003_spans(#("./" <> input_dir <> "/wly/", "", ["MathBlock"])),
+        dl.ti2_wrap_with_3003_spans(#("./" <> input_dir <> "/wly/", "", ["Math"])),
       ]
     },
     [

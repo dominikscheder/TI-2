@@ -2,6 +2,7 @@ import argv
 import formatter_renderer
 import gleam/dict
 import gleam/list
+import gleam/option
 import gleam/io
 import gleam/string
 import main_renderer
@@ -61,6 +62,15 @@ pub fn main() {
           local_cli_usage()
         }
       )
+
+      case amendments.input_dir {
+        option.Some("course1") -> Nil
+        option.Some("course2") -> Nil
+        _ -> {
+          io.println("must specify --input-dir 'course1' or 'course2'")
+          panic
+        }
+      }
 
       case dict.get(amendments.user_args, "--fmt") {
         Ok(_) -> {
