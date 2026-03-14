@@ -8,3 +8,30 @@ gleam run -- --fmt
 # formats the src to have xxxx numbers of characters per line 
 
 
+
+
+
+
+
+------ when translating html to wly -------
+
+
+|> div
+	class=example
+	Blabla
+
+should be made into 
+
+|> Example
+	
+
+- same with Proof etc. 
+
+- remove the \square because writerly automatically inserts it at the end of a proof environment.
+
+
+------
+
+
+
+

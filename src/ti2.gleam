@@ -1,12 +1,13 @@
 import argv
+import desugaring as ds
 import formatter_renderer
 import gleam/dict
-import gleam/list
 import gleam/io
+import gleam/list
+import gleam/option
 import gleam/string
 import main_renderer
 import on
-import desugaring as ds
 
 const ins = string.inspect
 
@@ -25,7 +26,10 @@ fn local_cli_usage() {
   io.println(margin <> "     • -file <name>: format only the given file")
   io.println("")
   io.println(margin <> "--local")
-  io.println(margin <> "  -> include source-linking tooltips (! to use with 'local-goto.js'")
+  io.println(
+    margin
+    <> "  -> include source-linking tooltips (! to use with 'local-goto.js'",
+  )
   io.println(margin <> "     server !)")
   io.println("")
 }
@@ -33,11 +37,12 @@ fn local_cli_usage() {
 pub fn main() {
   let args =
     argv.load().arguments
-    |> list.map(fn(x) { case x {
-      "only" -> "--only"
-      _ -> x
-    }})
-
+    |> list.map(fn(x) {
+      case x {
+        "only" -> "--only"
+        _ -> x
+      }
+    })
 
   case args {
     ["--help"] | ["-help"] | ["-h"] -> {
@@ -52,16 +57,22 @@ pub fn main() {
     }
 
     _ -> {
-      use amendments <-  on.error_ok(
+      use amendments <- on.error_ok(
         ds.process_command_line_arguments(args, ["--fmt", "--local"]),
         fn(error) {
           io.println("")
           io.println("cli error: " <> ins(error))
           ds.basic_cli_usage("\ncommand line options:")
           local_cli_usage()
-        }
+        },
       )
-
+      case amendments.input_dir {
+        option.Some(_) -> Nil
+        _ -> {
+          io.println("missing --input-dir argument")
+          panic
+        }
+      }
       case dict.get(amendments.user_args, "--fmt") {
         Ok(_) -> {
           io.println("")

@@ -441,6 +441,8 @@
     wir erhalten also insgesamt eine Tiefe von
     $O(\log^2 n)$.
 
+
+
     |> Exercise
         dass polynomiell viele (in diesem Falle: $O(n^2)$
         viele) Gates ausreichen. Zeigen Sie, wie die gerade
@@ -612,7 +614,7 @@
             \Pr[\maj_3(U,V,W)=1]&= \Pr[U=V=W=1] + \Pr[\textnormal{genau zwei von $\{U,V,W\}$ sind 1}]
             \\
             &= p^3 + 3p^2 (1-p) = \pfrac{1 + \delta}{2}^3 + 3 \pfrac{1 + \delta}{2}^2 \frac{1 -
-            \delta}{2} \\
+            \delta}{2} \\.
             &= \frac{1}{8} (4 + 6 \delta - 2 \delta^3) \\
             &= \frac{1}{2} \left( 1 + \frac{3}{2} \delta - \frac{1}{2}\delta^3 \right) \ .
             \end{align*}
