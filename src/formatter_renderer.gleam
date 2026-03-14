@@ -139,11 +139,12 @@ pub fn formatter_renderer(amendments: ds.CommandLineAmendments) -> Nil {
   )
 
   let pipeline = formatter_pipeline(line_length, indentation_penalty)
-
+  let assert option.Some(input_dir) = amendments.input_dir
+  let amendments = ds.CommandLineAmendments(..amendments, input_dir: None)
   let parameters =
     ds.RendererParameters(
-      input_dir: "./course1/wly",
-      output_dir: "./course1/wly",
+      input_dir: "./" <> input_dir <> "/wly",
+      output_dir: "./" <> input_dir <> "/wly",
       prettifier_behavior: ds.PrettifierOff,
     )
     |> ds.amend_renderer_paramaters_by_command_line_amendments(amendments)

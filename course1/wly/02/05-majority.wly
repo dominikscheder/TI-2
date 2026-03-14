@@ -314,8 +314,8 @@
         gilt.
 
     |> Proof
-        Ich demonstriere das Prinzip erst einmal mit
-        drei Zahlen in Basis 10:
+        Ich demonstriere das Prinzip erst einmal mit drei
+        Zahlen in Basis 10:
 
         |> figure
             |> img
